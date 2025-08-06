@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>პელაგონი სატესტო</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@900&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark py-4">
+        <div class="container-fluid navbarcontainer">
+            <a href="index.html" class="navbar-brand logo">
+                <img src="images/pngegg.png" alt="Logo" />
+            </a>
+            <div class="location d-flex align-items-center text-white justify-content-center gap-2"
+                id="locationSection">
+                <div class="location_icon rounded-circle">
+                    <i class="fas fa-map-marker-alt fa-lg text-white"></i>
+                </div>
+                <div class="d-flex flex-column justify-content-center lh-sm">
+                    <p class="location_title mb-0 pn1">მისამართი</p>
+                    <p class="location-address mb-0 pn2">არ არის არჩეული <i class="fas fa-chevron-down"></i></p>
+                </div>
+            </div>
+            <div class="icons">
+                <a href="#" id="openCartBtn" class="position-relative text-white text-decoration-none">
+                    <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" width="50" height="50">
+                        <circle cx="25" cy="25" r="25" fill="#A2823C" />
+                        <g transform="translate(5,5) scale(1.25)">
+                            <path
+                                d="M23.52,29h-15a5.48,5.48,0,0,1-5.31-6.83L6.25,9.76a1,1,0,0,1,1-.76H24a1,1,0,0,1,1,.7l3.78,12.16a5.49,5.49,0,0,1-.83,4.91A5.41,5.41,0,0,1,23.52,29ZM8,11,5.11,22.65A3.5,3.5,0,0,0,8.48,27h15a3.44,3.44,0,0,0,2.79-1.42,3.5,3.5,0,0,0,.53-3.13L23.28,11Z"
+                                fill="white" />
+                            <path
+                                d="M20,17a1,1,0,0,1-1-1V8a3,3,0,0,0-6,0v8a1,1,0,0,1-2,0V8A5,5,0,0,1,21,8v8A1,1,0,0,1,20,17Z"
+                                fill="white" />
+                        </g>
+                    </svg>
+                </a>
+                <a href="index.html" class="text-white text-decoration-none">
+                    <svg viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg" width="50" height="50">
+                        <circle cx="25" cy="25" r="25" fill="#474C57" />
+                        <g transform="translate(5,5) scale(1.25)">
+                            <path
+                                d="M23.74,16.18a1,1,0,1,0-1.41,1.42A9,9,0,0,1,25,24c0,1.22-3.51,3-9,3s-9-1.78-9-3a9,9,0,0,1,2.63-6.37,1,1,0,0,0,0-1.41,1,1,0,0,0-1.41,0A10.92,10.92,0,0,0,5,24c0,3.25,5.67,5,11,5s11-1.75,11-5A10.94,10.94,0,0,0,23.74,16.18Z"
+                                fill="white" />
+                            <path
+                                d="M16,17a7,7,0,1,0-7-7A7,7,0,0,0,16,17ZM16,5a5,5,0,1,1-5,5A5,5,0,0,1,16,5Z=16,5a5,5,0,1,1-5,5A5,5,0,0,1,16,5Z"
+                                fill="white" />
+                        </g>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="underconstruction">
+        <div class="container">
+            <div class="row justify-content-center align-items-center vh-100">
+                <div class="col-md-6 text-center">
+                    <h1 class="display-4">პროფილი</h1>
+                    <p class="lead">ამჟამად პროფილის გვერდი არ არის ხელმისაწვდომი.</p>
+                    <a href="index.html" class="btn  secondary">მთავარ გვერდზე დაბრუნება</a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div id="cartSlider" class="cartslider">
+            <div class="cart11">
+                <div class="cart22">
+                    <p>კალათა</p>
+                    <i class="fa-solid fa-circle-xmark cartcloser" id="closeCart"></i>
+                </div>
+                <div class="cart33">
+                    <div id="cartItemsContainerDesktop"></div>
+                    <div class="cartfooter">
+                        <div class="carttotal">
+                            <span>ჯამი:</span>
+                            <span class="totalamount">0 ₾</span>
+                        </div>
+                        <button class="checkoutbtn">გადახდა</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="globalBackdrop" class="backdrop"></div>
+
+
+        <div class="animationforcart" id="animationforcart1">
+            <div class="responsivecart1">
+                <div class="responsivecartinner">
+                    <p>კალათა</p>
+                    <i class="fa-solid fa-circle-xmark cartcloser" id="closeCartMobile"></i>
+                </div>
+                <div class="cartmaincontent">
+                    <div id="cartItemsContainer"></div>
+                </div>
+            </div>
+        </div>
+        <div class="backdrop1" id="globalBackdrop1"></div>
+
+
+        <div class="bottomnav">
+            <div class="navpart" id="openCart">
+                <i class="fa fa-cart-shopping"></i>
+                <a>კალათა</a>
+            </div>
+
+            <div class="navpart">
+                <i class="fa fa-user"></i>
+                <a href="profile.html">პროფილი</a>
+            </div>
+        </div>
+        <script>
+            document.addEventListener('click', function (e) {
+                // Check if clicked element or its parent has the cart functionality
+                if (e.target.closest('.navpart') && e.target.closest('.navpart').textContent.includes('კალათა')) {
+                    openMobileCart();
+                }
+            });
+
+            function openMobileCart() {
+                const mobileCart = document.querySelector('.animationforcart');
+
+                if (mobileCart) {
+                    mobileCart.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            }
+
+            function closeMobileCart() {
+                const mobileCart = document.querySelector('.animationforcart');
+
+                if (mobileCart) {
+                    mobileCart.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            }
+
+            // Close mobile cart with close button
+            document.addEventListener('click', function (e) {
+                if (e.target.matches('.responsivecartinner .cartcloser')) {
+                    closeMobileCart();
+                }
+            });
+        </script>
+</body>
+
+</html>
